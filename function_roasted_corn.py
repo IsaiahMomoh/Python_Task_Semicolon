@@ -27,14 +27,14 @@ def odd_index_characters(word):
     return result
 
 
-def find_minimum(numbers):
+def minimum(numbers):
     smallest = numbers[0]
     for number in numbers:
         if number < smallest:
             smallest = number
     return smallest
 
-def find_maximum(numbers):
+def maximum(numbers):
     largest = numbers[0]
     for number in numbers:
         if number > largest:
@@ -42,7 +42,7 @@ def find_maximum(numbers):
     return largest
 
 def repeat_string(word, number):
-    if isinstance(number, float):
+    if word.isinstance(number, float):
         return word
     result = ""
     for i in range(number):
