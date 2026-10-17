@@ -1,123 +1,107 @@
-
-def sum_of_squares(numbers):
-    total = 0
-
-    for number in numbers:
-        total += number ** 2
-    return total
-
 import random
-def random_numbers():
-    numbers = []
-    for i in range(10):
-        numbers.append(random.randint(1, 50))
-    return numbers
-
-def list_length(numbers):
-    count = 0
-    for number in numbers:
-        count += 1
-    return count
-
-def sum_even_positions(numbers):
-    total = 0
-    for index in range(1, len(numbers), 2):
-        total += numbers[index]
-    return total
-
-def sum_odd_positions(numbers):
-    total = 0
-    for index in range(0, len(numbers), 2):
-        total += numbers[index]
-    return total
-
-def multiply_every_third(numbers):
-    result = 1
-    for index in range(2, len(numbers), 3):
-        result *= numbers[index]
-    return result
-
-def calculate_average(numbers):
-    total = 0
-    count = 0
-    for number in numbers:
-        total += number
-        count += 1
-    if count == 0:
-        return 0
-    return total / count
-
-def largest_element(numbers):
-    largest = numbers[0]
-    for number in numbers:
-        if number > largest:
-            largest = number
-    return largest
-
-def smallest_element(numbers):
-    smallest = numbers[0]
-    for number in numbers:
-        if number < smallest:
-            smallest = number
-    return smallest
-
-def count_matching_strings(words):
-    count = 0
-    for word in words:
-        if len(word) >= 2 and word[0] == word[-1]:
-            count += 1
-    return count
-
-def create_list():
-    numbers = []
-    for number in range(1, 16):
-        numbers.append(number)
-    return numbers
-
-def sum_every_third(numbers):
-    total = 0
-    for index in range(2, len(numbers), 3):
-        total += numbers[index]
-    return total
-
-def first_middle_last_sum(numbers):
-    size = len(numbers)
-    if size == 0:
-        return 0
-    first = numbers[0]
-    last = numbers[-1]
-    if size % 2 == 1:
-        middle = numbers[size // 2]
-    else:
-        middle = (numbers[size // 2 - 1] + numbers[size // 2]) / 2
-    return first + middle + last
+random_numbers = []
 
 
-print(sum_of_squares(numbers))
-print(random_numbers())
-print(list_length(numbers))
-print(sum_even_positions(numbers))
-print(sum_odd_positions(numbers))
-print(multiply_every_third(numbers))
-print(calculate_average(numbers))
-print(largest_element(numbers))
-print(smallest_element(numbers))
-print(count_matching_strings(words))
-print(create_list())
-print(sum_every_third(numbers))
-print(first_middle_last_sum(numbers))
+for number in range (10):
+	random_numbers.append(random.randint(1,50))
+	
 
+def get_list_length(list):
+	count = 0
+	for content in list:
+		count = count + 1
+	return count
+	
+def sum_even_index_in_list(list):
+	count = 0
+	for number in range(len(list)):
+		if number % 2 == 0 and number != 0:
+			count = count + list[number]
+	return count
 
+def sum_odd_index_in_list(list):
+	count = 0
+	for number in range(len(list)):
+		if number % 2 == 1 and number != 0:
+			count = count + list[number]
+	return count
 
+def add_third_in_list(list):
+	sum_of_numbers = 0
+	for numbers in list[2: :3]:
+		sum_of_numbers = sum_of_numbers + numbers 
+	return sum_of_numbers	
+		
+def multiply_from_third_position(list):
+	product = 1
+	for content in list[2:len(list):3]:
+		product = product * content
+	return product
+	
+def largest_element_in_list(list):
 
+	largest = list[0]
+	
+	for number in list:
+		if number > largest:
+			largest = number
+	return largest
+	
+def smallest_element_in_list(list):
 
+	smallest = list[0]
+	
+	for number in list:
+		if number < smallest:
+			smallest  = number
+	return smallest
+	
+def same_first_and_and_last_character(list):
+	
+	count = 0
+	for content in list:
+		count = count + 1
+		if len(content) > 2 and content[0] == content[-1]:
+			print (content + " " + ", The number of String is ", end = "") 
+	print()
+	print ("The number of String is in list is ", end = "")
+	return count
+			
+def sequential_list_from_1_to_15():
+	sequential_list = []
+	for numbers in range(1,16):
+		sequential_list.append(numbers)
+	return sequential_list
+	
 
+def sum_of_first_middle_last_number(list):
+	first_index = list[0]
+	last_index = list[-1]
+	middle = len(list) // 2
+	
+	if len(list) % 2 == 0:
+		middle_index = (list[middle - 1] + list[middle])/2
+	else:
+		middle_index = list[middle]
+		
+	return first_index + middle_index + last_index
+		
+	
 
-
-
-
-
-
-
+	
+	
+	
+print(random_numbers)
+print(get_list_length([19, 9, 47, 3, 13, 27, 13, 44, 25, 47]))
+print(sum_even_index_in_list([19, 9, 47, 3, 13, 27, 13, 44, 28, 47]))
+print(sum_odd_index_in_list([19, 9, 47, 3, 13, 27, 13, 44, 28, 47]))
+print(add_third_in_list([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]))
+print(multiply_from_third_position([1,2,3,4,5,6,7,8,9,10]))	
+print(largest_element_in_list([1,2,3,4,5,6,7,8,9,10]))
+print(smallest_element_in_list([1,2,3,4,5,6,7,8,9,10]))
+print(same_first_and_and_last_character(['abc', 'xyz', 'aba', '1221', 'a', 'boba', 'racecar', 'aa']))
+print (sequential_list_from_1_to_15())
+print(sum_of_first_middle_last_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]))
+print(sum_of_first_middle_last_number([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]))	
 
 
